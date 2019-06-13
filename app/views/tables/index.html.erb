@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tables</h1>
+
+  <% @tables.each do |table| %>
+  <div class="card col-lg-2">
+    <div class="card-body"></div>
+      <h3>
+        <%= table.table_no %>
+      </h3>
+      <h4>Seats: <%= table.seats_available %></h4>
+      <%= button_to 'Occupied?', table, method: :change_occupancy, :class => "btn btn-primary"%>
+      <%= link_to 'Show', table %>
+      <%= link_to 'Edit', edit_table_path(table) %>
+      <%= link_to 'Destroy', table, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+  <% end %>
+
+<br>
+
+<%= link_to 'New Table', new_table_path %>
