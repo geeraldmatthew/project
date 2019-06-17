@@ -1,0 +1,19 @@
+<p id=”notice”><%= notice %></p>
+<div class="jumbotron text-center">
+	<h1>Welcome to gRestaurant</h1>
+	<h3>Your table management application.</h3>
+</div>
+<div class="row">	
+	<div class="col-lg-4">
+		<%= render "shared/card",  title: "One step closer to peace of mind.", content: "You'll never have to remember a single order ever!",
+				button_link: "/login", button: "Login" %>
+	</div>
+	<div class="col-lg-4">
+		<%= render "shared/card",  title: "Be Organized!", content: "Track all occupied/unoccupied tables, as well as their orders, all in the app! Register Now.",
+				button_link: "/signup", button: "Register" %>
+	</div>
+	<div class="col-lg-4">
+		<%= render "shared/card",  title: "View our menu!", content: "Check out our delicious and healthy dishes available right now!",
+				button_link: "/menus", button: "Menu" %>
+	</div>
+</div>

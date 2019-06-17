@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+  <h2>Table # <%= @table.id %>
+  </h2>
+
+  <h3>Seats available: <%= @table.seats_available %>
+  </h3>
+
+	<% if !@table.isOccupied %>
+		<h3>Not Currently Occupied.</h3>
+	<% else %>
+		<h3>Occupied.</h3>
+	<% end %>
+<%= link_to 'Edit', edit_table_path(@table) %> |
+<%= link_to 'Back', tables_path %>
+<br>
+<br>
+<%= render partial: "all_orders" %>
+<%= render partial: "new_order",locals:{order:Order.new(:table_no => @table.id)} %>

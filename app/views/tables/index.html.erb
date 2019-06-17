@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Tables</h1>
+  <div class="row">
+    <% @tables.each do |table| %>
+    <div class="card col-lg-3">
+      <div class="card-body">
+         <% if !table.isOccupied %>
+            <h1>Not Currently Occupied.</h1>
+         <% else %>
+            <h1>Occupied!</h1>
+          <% end %>
+        </div>
+        <h3>Table # 
+          <%= table.id %>
+        </h3>
+        <h4>Seats: <%= table.seats_available %></h4>
+        <% if !table.isOccupied %>
+
+        <% else %>
+          <%= link_to 'Orders', table %>
+        <% end %>
+        <%= link_to 'Destroy', table, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= button_to "#{ table.isOccupied ? 'Finish' : 'Occupy'}", change_occupancy_table_path(table), method: :patch, remote: :true, :class => "float-right btn btn-#{ table.isOccupied ? 'success' : 'warning' }" %>
+    </div>
+    <% end %>
+  </div>
+
+  <br>
+    <div class="float-right">
+      <%= link_to 'New Table', new_table_path, :class => "btn btn-primary text-light" %>
+    </div> 
+</div>
+
